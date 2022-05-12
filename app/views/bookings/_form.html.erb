@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :fecha_inicio, html5: true %>
+    <%= f.input :fecha_final, html5: true %>
+    <%= f.input :barco,
+            as: :radio_buttons,
+            collection: ["eolo", "barqa"] %>
+    <%= f.input :nom %>
+    <%= f.input :contacte %>
+    <%= f.input :preu %>
+    <%= f.input :canal,
+            as: :radio_buttons,
+            collection: ["Click&Boat", "Nautal", "Wallapop", "Samboat", "Whatsapp", "Altres"] %>
+    <%= f.input :observacions %>
+  </div>
+
+  <div class="form-actions text-center">
+    <%= f.button :submit, class:"btn btn-primary" %>
+  </div>
+<% end %>

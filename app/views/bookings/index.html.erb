@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reservas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha inicio</th>
+      <th>Fecha final</th>
+      <th>Barco</th>
+      <th>Nom</th>
+      <th>Contacte</th>
+      <th>Preu</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= link_to booking.fecha_inicio, booking %></td>
+        <td><%= booking.fecha_final %></td>
+        <td><%= booking.barco %></td>
+        <td><%= booking.nom %></td>
+        <td><%= booking.contacte %></td>
+        <td><%= booking.preu %>€</td>
+        <td><%= link_to 'x', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
