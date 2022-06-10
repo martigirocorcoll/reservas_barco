@@ -17,8 +17,12 @@
 
   <tbody>
     <% @bookings.each do |booking| %>
-      <tr>
+    <tr>
+      <% if booking.fecha_inicio < Date.today() %>
+        <td style = "background-color: gray;"><%= link_to booking.fecha_inicio.strftime("%d-%m-%Y"), booking %></td>
+      <% else %>
         <td><%= link_to booking.fecha_inicio.strftime("%d-%m-%Y"), booking %></td>
+      <% end %>
         <td><%= booking.fecha_final %></td>
         <td><%= booking.barco %></td>
         <td><%= booking.nom %></td>
