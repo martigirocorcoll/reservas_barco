@@ -2,16 +2,21 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
 
   def index
-    @bookings = Booking.all
+    @q = Booking.ransack(params[:q])
+    @bookings = @q.result(distinct: true)
   end
 
   # GET /bookings or /bookings.json
   def index_eolo
-    @bookings = Booking.where(barco: "eolo")
+    # @bookings = Booking.where(barco: "eolo")
+    @q = Booking.where(barco: "eolo").ransack(params[:q])
+    @bookings = @q.result(distinct: true)
   end
 
   def index_barqa
-    @bookings = Booking.where(barco: "barqa")
+    # @bookings = Booking.where(barco: "barqa")
+    @q = Booking.where(barco: "barqa").ransack(params[:q])
+    @bookings = @q.result(distinct: true)
   end
 
   # GET /bookings/1 or /bookings/1.json

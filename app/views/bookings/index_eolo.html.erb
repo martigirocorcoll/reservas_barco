@@ -5,7 +5,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Fecha inicio</th>
+      <th> <%= sort_link(@q, :fecha_inicio, 'Fecha inicio', default_order: :desc) %></th>
       <th>Fecha final</th>
       <th>Barco</th>
       <th>Nom</th>
@@ -18,7 +18,7 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= link_to booking.fecha_inicio, booking %></td>
+        <td><%= link_to booking.fecha_inicio.strftime("%d-%m-%Y"), booking %></td>
         <td><%= booking.fecha_final %></td>
         <td><%= booking.barco %></td>
         <td><%= booking.nom %></td>
