@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/calendar', to: 'pages#home'
   resources :bookings
   root to: 'bookings#index'
   get '/eolo-bookings', to: 'bookings#index_eolo'

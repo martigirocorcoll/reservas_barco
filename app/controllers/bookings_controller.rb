@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @q = Booking.ransack(params[:q])
+    @q.sorts = "fecha_inicio asc" if @q.sorts.empty?
     @bookings = @q.result(distinct: true)
   end
 
@@ -10,12 +11,14 @@ class BookingsController < ApplicationController
   def index_eolo
     # @bookings = Booking.where(barco: "eolo")
     @q = Booking.where(barco: "eolo").ransack(params[:q])
+    @q.sorts = "fecha_inicio asc" if @q.sorts.empty?
     @bookings = @q.result(distinct: true)
   end
 
   def index_barqa
     # @bookings = Booking.where(barco: "barqa")
     @q = Booking.where(barco: "barqa").ransack(params[:q])
+    @q.sorts = "fecha_inicio asc" if @q.sorts.empty?
     @bookings = @q.result(distinct: true)
   end
 
