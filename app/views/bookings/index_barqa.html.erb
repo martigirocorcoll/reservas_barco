@@ -10,7 +10,7 @@
       <th>Barco</th>
       <th>Nom</th>
       <th>Contacte</th>
-      <th>Preu</th>
+      <th><%= Booking.total_barqa %></th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@
         <td><%= booking.barco %></td>
         <td><%= booking.nom %></td>
         <td><%= booking.contacte %></td>
-        <td><%= booking.preu %>€</td>
+        <td><%= booking.preunet %>€</td>
         <td><%= link_to 'x', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
