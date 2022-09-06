@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
 
 
   def facturas
-    @bookings = Booking.where(canal: "Nautal").or(Booking.where(canal: "Click&Boat")).or(Booking.where(canal: "Samboat"))
+    @bookings = Booking.where(canal: "Nautal").or(Booking.where(canal: "Click&Boat")).or(Booking.where(canal: "Samboat")).order(fecha_inicio: :asc)
     respond_to do |format|
       format.html
       format.pdf do
