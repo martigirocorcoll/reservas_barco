@@ -1,1 +1,6 @@
 // Specific CSS for your home-page
+.page-break {
+  display: block;
+  clear: both;
+  page-break-after: always;
+}

@@ -35,6 +35,31 @@ class BookingsController < ApplicationController
   def edit
   end
 
+
+
+
+
+  def facturas
+    @bookings = Booking.where(canal: "Nautal").or(Booking.where(canal: "Click&Boat")).or(Booking.where(canal: "Samboat"))
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "facturas",
+        template: "bookings/facturas.html.erb",
+        encoding: 'utf8'
+      end
+    end
+  end
+
+
+
+
+
+
+
+
+
+
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
